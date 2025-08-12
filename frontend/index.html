@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>URL Kısaltıcı & Giriş/Kayıt</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <div class="wrapper"> <!-- Ana içerik alanı -->
+
+    <div class="container" id="profile-container"><!-- Profil ekranı (başlangıçta gizli) -->
+      <div id="profile-section" style="display:none; margin-top:30px;">
+        <h2>Profilim</h2>
+        <div id="profile-info"></div>
+        <button class="logoutbtn" id="btn-logout">Çıkış Yap</button>
+      </div>
+    </div>
+    <!-- Giriş/Kayıt ekranı -->
+    <div class="container" id="auth-container">
+
+      <div id="auth-buttons-wrapper">
+
+        <!-- Logo ve Slogan -->
+        <div class="auth-logo">
+          <img src="logo_shorta_gradient_reset_size.svg" alt="Logo" class="auth-logo-img" />
+          <h2 class="auth-slogan">URL'leri kolayca kısalt,<br> hesabını güvenle yönet!</h2>
+        </div>
+
+        <!-- Giriş/Kayıt Butonları -->
+        <div class="auth-buttons">
+          <button id="btn-login">Giriş Yap</button>
+          <button id="btn-register">Kayıt Ol</button>
+        </div>
+        <p class="auth-ad-text">Hesap oluşturun ve ayrıcalıklardan faydalanın!</p>
+      </div>
+
+
+      <div id="auth-forms-wrapper" style="display:none;">
+        <button id="btn-back" class="back-button">← Geri</button>
+
+        <form id="login-form" style="display:none;">
+          <input type="email" id="login-email" placeholder="Email" required />
+          <input type="password" id="login-password" placeholder="Şifre" required />
+          <button type="submit">Giriş Yap</button>
+        </form>
+
+        <form id="register-form" style="display:none;">
+          <input type="text" id="register-username" placeholder="Kullanıcı Adı" required />
+          <input type="email" id="register-email" placeholder="Email" required />
+          <input type="password" id="register-password" placeholder="Şifre" required />
+          <button type="submit">Kayıt Ol</button>
+        </form>
+      </div>
+
+      <div id="auth-result" style="margin-top: 20px;"></div>
+
+    </div>
+
+
+
+
+    <div class="container" id="url-container">
+      <h1>URL Kısaltıcı</h1>
+      <form id="shorten-form">
+        <!--kull girdiği bilgileri toplayıp işlem yapması için kullanılan form  id js kodu ile eşleşmeyi sağlar -->
+        <input type="url" id="url" placeholder="Uzun URL" required />
+        <input type="text" id="customCode" placeholder="Özel kısa kod (isteğe bağlı)" />
+        <input type="number" id="ttl" placeholder="TTL (saniye, isteğe bağlı)" min="60" />
+        <input type="password" id="password" placeholder="Parola (isteğe bağlı)" style="display: none;" />
+        <button type="submit">Kısalt</button>
+      </form>
+    </div>
+
+
+
+
+    <!-- url kısaltma işlemi sonucunda sayfanın üzerine binen ve kısa url gösteren modal pencere -->
+    <div id="resultModal" class="modal">
+      <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <h2 id="modalTitle">Kısaltma Başarılı!</h2>
+        <div id="modal-result" class="modal-result-content"></div>
+      </div>
+    </div>
+
+  </div>
+
+
+  <script src="app.js"></script>
+
+</body>
+
+</html>
